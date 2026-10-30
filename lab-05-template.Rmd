@@ -108,8 +108,10 @@ candy_df <- candy_df %>%
 Complete the following code to get the data viz to represent "how many candies contain caramel via bar plot". Fill in the blanks, remove the # symbol in front of your code and the execute the code chunk via green play button.
 
 ```{r}
-# ggplot(candy_rankings, aes(x = ______)) +
-#  _____() +
+ggplot(candy_rankings, aes(x = caramel)) + labs(title = "how many candies contain caramel") +
+geom_bar()
+
+ggplot(candy_rankings, aes(x = chocolate)) + labs(title = "how many candies contain chocolate") + geom_bar()
 ```
 
 ## Exercise 3
@@ -117,7 +119,10 @@ Complete the following code to get the data viz to represent "how many candies c
 Now look at a numerical variable, such as `winpercent`. Create an histogram for this variable using ggplot2 functions below. Include informative x and y labels and a title, as a good practice.
 
 ```{r}
-# Your code here
+ggplot(candy_rankings, aes(x = winpercent)) + 
+  geom_histogram() + 
+  labs(title = "win percent of different candies") +
+  theme_bw()
 
 ```
 
@@ -132,9 +137,9 @@ Fill in the blanks, remove the # symbol in front of your code and the execute th
 
 ```{r}
 # Your code here
-#ggplot(candy_df, aes(x = ___________)) +
-#  geom_histogram() +
-#  facet_wrap(___________)
+ggplot(candy_df, aes(x = winpercent, fill = caramel)) +
+  geom_histogram() +
+  facet_wrap("chocolate") 
 
 ```
 
