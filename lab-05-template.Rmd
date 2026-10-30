@@ -151,7 +151,12 @@ ggplot(candy_df, aes(x = winpercent, fill = caramel)) +
 Create a visualization that examines the relationship between a candy’s win percentage and whether it contains chocolate. Include x and y labels and a title. Describe any relationship you see.
 
 ```{r}
-# your code here
+ggplot(candy_rankings, aes(x = winpercent, fill = chocolate)) + geom_histogram(alpha = 0.6) + 
+  theme_bw()
+
+ggplot(candy_rankings, aes(x = winpercent, fill = caramel)) + geom_histogram(alpha = 0.6) + theme_bw()
+
+ggplot(candy_rankings, aes(x = winpercent, fill = fruity)) + geom_histogram(alpha = 0.6) + theme_bw()
 
 ```
 
@@ -174,7 +179,9 @@ candy_rankings %>%
 Do more expensive candies win more often? Make a scatterplot of pricepercent (x) against winpercent (y). Describe their relationship.  
 
 ```{r}
-# your code here
+ggplot(candy_rankings, aes(x = pricepercent, y = winpercent, colour = chocolate)) + geom_point(alpha = 0.6, size = 2) + 
+  labs(title = "Comparison of Price and Win Percent", x = "Price Percent", y = "Win Percent") +
+  theme_bw() 
 
 ```
 
@@ -188,7 +195,12 @@ Do more expensive candies win more often? Make a scatterplot of pricepercent (x)
 Are chocolate candies more likely to be candy bars? Make a filled bar plot with chocolate on the x-axis and fill = bar. Describe what you see.
 
 ```{r}
-# Your code here
+chocolate_candy <- candy_rankings %>%
+  filter(chocolate == TRUE)
+ggplot(chocolate_candy, aes(x = bar)) +
+  geom_bar(alpha = 0.6, colour = "pink", fill = "pink") +
+  labs(title = "Chocolate Candy") +
+  theme_bw()
 
 ```
 
