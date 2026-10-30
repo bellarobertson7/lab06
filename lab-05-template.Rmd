@@ -209,8 +209,12 @@ ggplot(chocolate_candy, aes(x = bar)) +
 Create a new variable called price per sugar ratio as the division of pricepercent and sugarpercent. Plot it against winpercent, and set the color of all points to blue for the competitors who are not "One dime" or "One quarter". Include x and y labels and a title. Describe any relationship you see.
 
 ```{r}
-# your code here
+price_per_sugar <- candy_rankings %>%
+  mutate(price = pricepercent/sugarpercent)
 
+ggplot(price_per_sugar, aes(x = price, y = winpercent)) +
+  geom_point(size = 2, alpha = 0.6, colour = "blue") +
+  labs(title = "Comparison of Price per Sugar and Win Percent", x = "Price per Sugar Ratio", y = "Win Percent")
 ```
 
 
