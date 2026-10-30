@@ -10,6 +10,15 @@ output: html_document
 ```{r load-packages, message = FALSE, warning=FALSE}
 library(tidyverse)
 library(ggplot2)
+install.packages("fivethirtyeight")
+library(fivethirtyeight)
+candy_df <- candy_rankings
+glimpse(candy_df)
+nrow(candy_df)
+ncol(candy_df)
+dim(candy_df)
+candy_df <- candy_df %>%
+  mutate(across(where(is.logical), as_factor))
 ```
 
 
